@@ -43,7 +43,7 @@ $searcher.SizeLimit = 0
 $results = $searcher.FindAll()
 
 # Create a new CSV file to export the results
-$outputFile = "C:\intel\V_Dump.csv"
+$outputFile = "C:\temp\V_Dump.csv"
 
 # Loop through the results and write them to the output file
 $results | ForEach-Object {
