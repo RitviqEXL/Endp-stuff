@@ -20,9 +20,9 @@ Copy-Item -Path $sourceFilePath -Destination $destinationFilePath -Force
 
 # Verify if the file was copied successfully
 if (Test-Path -Path $destinationFilePath) {
-    Write-Host "File successfully copied to $destinationFilePath"
+    Write-Host "File successfully copied to $destinationFilePath" -ForegroundColor Green
 } else {
-    Write-Host "Failed to copy the file."
+    Write-Host "Failed to copy the file." -ForegroundColor Red
 }
 
 ############################## Fetch AD dump ################################## 
@@ -34,7 +34,7 @@ Start-Process -FilePath "cmd.exe" -ArgumentList "/c $cmdCommand" -NoNewWindow -W
 #Start-Process -FilePath "powershell.exe" -ArgumentList "-NoProfile -File 'C:\temp\Fetch_VendorDump_Manager.ps1'" -NoNewWindow -Wait
 #Start-Job -ScriptBlock { & 'C:\temp\Fetch_VendorDump_Manager.ps1' }
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/RitviqEXL/Endp-stuff/refs/heads/main/Fetch_VendorDump_Manager.ps1" -OutFile "C:\Temp_1\Fetch_VendorDump_Manager.ps1"
-Write-Host "File downloaded successfully to C:\Temp_1\Fetch_VendorDump_Manager.ps1"
+Write-Host "File downloaded successfully to C:\Temp_1\Fetch_VendorDump_Manager.ps1" -ForegroundColor Green
 Unblock-file -Path "C:\Temp_1\Fetch_VendorDump_Manager.ps1"
 Start-Process -FilePath "powershell.exe" -ArgumentList "-File C:\Temp_1\Fetch_VendorDump_Manager.ps1" -Wait -NoNewWindow
 
